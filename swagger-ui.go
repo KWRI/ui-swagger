@@ -59,7 +59,7 @@ func AttachSwaggerUI(router *mux.Router, base_path string) (err error) {
 func getWorkingDirectory() (staticPath string, err error) {
 
 	// get static path from vendors first
-	staticPath = "./vendor/github.build.ge.com/aviation-intelligent-airport/swagger-ui/static/"
+	staticPath = "./vendor/github.com/werpas/ui-swagger/static/"
 	if _, err1 := os.Stat(staticPath + "json/swagger.json"); err1 == nil {
 		return
 	}
