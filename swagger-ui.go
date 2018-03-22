@@ -24,7 +24,7 @@ const (
 	SWAGGER_FILE = "swagger.json"
 )
 
-func AttachSwaggerUI(router *mux.Router, base_path string) (err error) {
+func AttachSwaggerUI(router *mux.Router, base_path string, swaggerBase string) (err error) {
 
 	// set swagger-ui routes
 	staticPath, err1 := getWorkingDirectory()
@@ -33,7 +33,7 @@ func AttachSwaggerUI(router *mux.Router, base_path string) (err error) {
 	}
 
 	// check if swagger doc exists
-	if _, err2 := os.Stat("./api/" + SWAGGER_FILE); err2 == nil {
+	if _, err2 := os.Stat(swaggerBase + SWAGGER_FILE); err2 == nil {
 
 		// set swagger.json file route
 		router.PathPrefix(base_path + "help/data").Handler(http.StripPrefix(base_path + "help/data", http.FileServer(http.Dir("./api"))))
