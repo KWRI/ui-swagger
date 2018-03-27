@@ -10,14 +10,14 @@ import (
 	"os"
 
 	// include static files
-	_ "github.com/werpas/ui-swagger/static"
-	_ "github.com/werpas/ui-swagger/static/css"
-	_ "github.com/werpas/ui-swagger/static/fonts"
-	_ "github.com/werpas/ui-swagger/static/images"
-	_ "github.com/werpas/ui-swagger/static/js"
-	_ "github.com/werpas/ui-swagger/static/lang"
-	_ "github.com/werpas/ui-swagger/static/lib"
-	_ "github.com/werpas/ui-swagger/static/json"
+	_ "github.com/KWRI/ui-swagger/static"
+	_ "github.com/KWRI/ui-swagger/static/css"
+	_ "github.com/KWRI/ui-swagger/static/fonts"
+	_ "github.com/KWRI/ui-swagger/static/images"
+	_ "github.com/KWRI/ui-swagger/static/js"
+	_ "github.com/KWRI/ui-swagger/static/lang"
+	_ "github.com/KWRI/ui-swagger/static/lib"
+	_ "github.com/KWRI/ui-swagger/static/json"
 )
 
 const (
