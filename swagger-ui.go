@@ -67,7 +67,7 @@ func AttachSwaggerUI(router *mux.Router, base_path string, swaggerBase string) (
 func getWorkingDirectory() (staticPath string, err error) {
 
 	// get static path from vendors first
-	staticPath = "./vendor/github.com/KWRI/ui-swagger/static/"
+	staticPath = "./vendor/github.com/KWRI/ui-swagger/node_modules/"
 	if _, err1 := os.Stat(staticPath + "json/swagger.json"); err1 == nil {
 		return
 	}
@@ -80,7 +80,7 @@ func getWorkingDirectory() (staticPath string, err error) {
 	}
 
 	// set swagger-ui routes
-	staticPath = path.Dir(packagePath) + "/static/"
+	staticPath = path.Dir(packagePath) + "/node_modules/"
 
 	return
 }
