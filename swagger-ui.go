@@ -10,14 +10,21 @@ import (
 	"os"
 
 	// include static files
-	_ "github.com/KWRI/ui-swagger/static"
-	_ "github.com/KWRI/ui-swagger/static/css"
-	_ "github.com/KWRI/ui-swagger/static/fonts"
-	_ "github.com/KWRI/ui-swagger/static/images"
-	_ "github.com/KWRI/ui-swagger/static/js"
-	_ "github.com/KWRI/ui-swagger/static/lang"
-	_ "github.com/KWRI/ui-swagger/static/lib"
-	_ "github.com/KWRI/ui-swagger/static/json"
+	//_ "github.com/KWRI/ui-swagger/static"
+	//_ "github.com/KWRI/ui-swagger/static/css"
+	//_ "github.com/KWRI/ui-swagger/static/fonts"
+	//_ "github.com/KWRI/ui-swagger/static/images"
+	//_ "github.com/KWRI/ui-swagger/static/js"
+	//_ "github.com/KWRI/ui-swagger/static/lang"
+	//_ "github.com/KWRI/ui-swagger/static/lib"
+	//_ "github.com/KWRI/ui-swagger/static/json"
+	_ "github.com/KWRI/ui-swagger/node_modules"
+	_ "github.com/KWRI/ui-swagger/node_modules/swagger-ui-dist"
+	_ "github.com/KWRI/ui-swagger/node_modules/next-tick"
+	_ "github.com/KWRI/ui-swagger/node_modules/es6-symbol"
+	_ "github.com/KWRI/ui-swagger/node_modules/es6-iterator"
+	_ "github.com/KWRI/ui-swagger/node_modules/es5-ext"
+	_ "github.com/KWRI/ui-swagger/node_modules/d"
 )
 
 const (
@@ -45,12 +52,13 @@ func AttachSwaggerUI(router *mux.Router, base_path string, swaggerBase string) (
 		log.Println(err.Error())
 	}
 
-	router.PathPrefix(base_path + "help/css").Handler(http.StripPrefix(base_path + "help/css", http.FileServer(http.Dir(staticPath + "css"))))
-	router.PathPrefix(base_path + "help/fonts").Handler(http.StripPrefix(base_path + "help/fonts", http.FileServer(http.Dir(staticPath + "fonts"))))
-	router.PathPrefix(base_path + "help/images").Handler(http.StripPrefix(base_path + "help/images", http.FileServer(http.Dir(staticPath + "images"))))
-	router.PathPrefix(base_path + "help/js").Handler(http.StripPrefix(base_path + "help/js", http.FileServer(http.Dir(staticPath + "js"))))
-	router.PathPrefix(base_path + "help/lang").Handler(http.StripPrefix(base_path + "help/lang", http.FileServer(http.Dir(staticPath + "lang"))))
-	router.PathPrefix(base_path + "help/lib").Handler(http.StripPrefix(base_path + "help/lib", http.FileServer(http.Dir(staticPath + "lib"))))
+	router.PathPrefix(base_path + "help/node-modules").Handler(http.StripPrefix(base_path + "help/node-modules", http.FileServer(http.Dir(staticPath + "node-modules"))))
+	router.PathPrefix(base_path + "help/swagger-ui-dist").Handler(http.StripPrefix(base_path + "help/swagger-ui-dist", http.FileServer(http.Dir(staticPath + "swagger-ui-dist"))))
+	router.PathPrefix(base_path + "help/next-tick").Handler(http.StripPrefix(base_path + "help/next-tick", http.FileServer(http.Dir(staticPath + "next-tick"))))
+	router.PathPrefix(base_path + "help/es6-symbol").Handler(http.StripPrefix(base_path + "help/es6-symbol", http.FileServer(http.Dir(staticPath + "es6-symbol"))))
+	router.PathPrefix(base_path + "help/es6-iterator").Handler(http.StripPrefix(base_path + "help/es6-iterator", http.FileServer(http.Dir(staticPath + "es6-iterator"))))
+	router.PathPrefix(base_path + "help/es5-ext").Handler(http.StripPrefix(base_path + "help/es5-ext", http.FileServer(http.Dir(staticPath + "es5-ext"))))
+	router.PathPrefix(base_path + "help/d").Handler(http.StripPrefix(base_path + "help/d", http.FileServer(http.Dir(staticPath + "d"))))
 	router.PathPrefix(base_path + "help").Handler(http.StripPrefix(base_path + "help", http.FileServer(http.Dir(staticPath))))
 
 	return
